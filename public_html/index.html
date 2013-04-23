@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PHPoetry Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.1/build/cssnormalize/cssnormalize-min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="myexample_api.php?a=js"></script>
+    <script>
+      // Register optional callback handler(s)
+      MyExample.callback.hello.push(
+              function(data) {
+                console.log("API RESULT: " + JSON.stringify(data));
+              }
+      );
+      MyExample.callback.hello.push(
+              function(data) {
+                alert("Promised delivered! " + JSON.stringify(data) + ', Can you ' + MyExample.CAN_YOU);
+              }
+      );
+    </script>
+  </head>
+
+  <body>
+    <h1>Live PHPoetry Example</h1>
+    <div>
+      <label for="hello">What is your name:</label>
+      <input type="text" id="hello" name="hello" />
+      <button type="button" id="apicall" onclick="MyExample.hello($('#hello').val())">Try the API</button>
+    </div>
+  </body>
+</html>
